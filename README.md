@@ -8,6 +8,7 @@ Sitio corporativo estático, adaptable a móviles, hecho en **HTML + CSS + JavaS
 - `style.css` — identidad visual, layout, mobile y accesibilidad.
 - `script.js` — menú, filtros, ordenamiento, galería de imágenes, diálogos y formulario.
 - `propiedades.js` — configuración comercial, correo de contacto y datos del catálogo.
+- `gracias.html` — confirmación visual del formulario de contacto.
 - `assets/logo-original.png` — imagen completa del logotipo seleccionado por el fundador.
 - `assets/logo-terriva.webp` — nombre y subtítulo recortados del diseño original para el encabezado.
 - `assets/logo-completo.webp` — logotipo completo optimizado.
@@ -33,11 +34,12 @@ No incluyas material privado de la empresa, contratos internos, datos de inversi
 ## Aún por configurar (antes de lanzamiento)
 
 - Registrar/verificar la disponibilidad de **TERRIVA** como marca y nombre comercial.
-- Configurar un correo empresarial real en `propiedades.js`.
+- El correo receptor provisional es `anakinjd1985@gmail.com` (personal; conviene migrar a uno empresarial).
 - Decidir si mostrar la ficha de demostración o deshabilitarla.
 - Añadir fotografías **reales y autorizadas** y fichas verificadas.
 - Revisar textos jurídicos, condiciones comerciales y políticas de privacidad con profesionales antes de recopilar datos y ofrecer inversiones.
-- Configurar un backend de formularios si deseas que lleguen consultas sin pasar por el cliente de correo del visitante.
+- **Activar recepción de formularios en FormSubmit**: enviar una consulta de prueba desde el sitio publicado y confirmar el enlace que llegará a `anakinjd1985@gmail.com`. Hasta confirmar, el sitio no tiene entrega de correo verificada. Comprueba Spam.
+- No almacenar información privada de visitantes en el repositorio GitHub. El formulario usa un procesador externo (FormSubmit), no una base de datos propia.
 - Vincular un dominio cuando tengas uno registrado.
 
 ## Protección del proyecto
@@ -50,4 +52,16 @@ La galería de demostración contiene **ilustraciones** claramente identificadas
 
 ## Tecnología
 
-Sitio sin framework ni dependencias de compilación. Usa Google Fonts de manera opcional (si fallan, se emplean fuentes de reserva). La única función que abre una aplicación externa es el formulario de contacto mediante `mailto:` una vez que configures una dirección. No existe gestión de clientes, autenticación, procesador de pagos ni base de datos en este paquete.
+Sitio sin framework ni dependencias de compilación. Usa Google Fonts de manera opcional (si fallan, se emplean fuentes de reserva). El formulario de contacto utiliza `POST` hacia FormSubmit y requiere activación por correo del titular. No existe CRM, autenticación, procesador de pagos ni base de datos propia en este paquete.
+
+## Etapa 2 — Recepción real de consultas
+
+1. Subir `index.html`, `script.js`, `propiedades.js`, `style.css` y `gracias.html` al repositorio.
+2. Esperar a que GitHub Pages publique los cambios.
+3. Abrir `https://elberlord.github.io/Terriva/#contacto` y enviar **una prueba** con datos ficticios.
+4. Revisar `anakinjd1985@gmail.com`, incluida la carpeta Spam, y abrir el enlace de activación enviado por FormSubmit.
+5. Volver a enviar otra prueba y comprobar su recepción. **No afirmar que funciona hasta realizar esta verificación.**
+
+El formulario tiene CAPTCHA (gestionado por FormSubmit), campo trampa antispam y consentimiento previo. Los datos se envían a un servicio externo bajo su política de privacidad: https://formsubmit.co/privacy.pdf.
+
+**Privacidad:** el email aparecerá en el HTML público. FormSubmit ofrece sustituirlo por un token opaco después de activar el formulario (ver su apartado *Invisible emails*). El aviso de privacidad incluido es preliminar y debe revisarse con asesoría legal antes de un uso comercial amplio.

@@ -7,7 +7,7 @@
   Importante: jamás publiques datos judiciales o ubicaciones privadas sensibles.
 */
 window.TERRIVA_CONFIG = {
-  contactEmail: "", // Ejemplo: "contacto@tu-dominio.com" (solo cuando el correo sea tuyo)
+  contactEmail: "anakinjd1985@gmail.com", // Destino de consultas; en formularios estáticos también queda público en index.html
   mostrarDemostracion: true
 };
 

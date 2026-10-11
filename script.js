@@ -1,4 +1,4 @@
-/* TERRIVA - interacciones del sitio estático. No recopila ni transmite datos automáticamente. */
+/* TERRIVA - interacciones del sitio estático. El formulario de contacto se envía por POST a FormSubmit. */
 (() => {
   "use strict";
   const $ = (selector, root = document) => root.querySelector(selector);
@@ -76,22 +76,7 @@
 
   const legal=$("#legalDialog");$("#legalOpen").addEventListener("click",()=>legal.showModal());$("#legalClose").addEventListener("click",()=>legal.close());legal.addEventListener('click',e=>{if(e.target===legal)legal.close();});
   $$("[data-interest]").forEach(el=>el.addEventListener('click',()=>{$("#interestSelect").value=el.dataset.interest;}));
-  const form = $("#contactForm");
-  form.addEventListener("submit", async e => {
-    e.preventDefault();
-    const feedback=$("#formFeedback"), name=form.elements.name.value.trim(), email=form.elements.email.value.trim(), interest=form.elements.interest.value, message=form.elements.message.value.trim();
-    if (!name || !email || !interest || !message || !form.elements.email.checkValidity()) { feedback.textContent='Completa los campos y escribe un correo electrónico válido.';return; }
-    const subject='Consulta TERRIVA — '+({comprar:'Compra',vender:'Venta',inversion:'Inversión',otro:'General'}[interest]||'General');
-    const body=`Nombre: ${name}\nCorreo: ${email}\nInterés: ${interest}\n\nMensaje:\n${message}`;
-    const destination = String(config.contactEmail || "").trim();
-    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(destination)) {
-      feedback.textContent='Se abrirá tu aplicación de correo. Verifica el mensaje y envíalo desde allí; esta web no lo envía automáticamente.';
-      window.location.href=`mailto:${encodeURIComponent(destination)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    } else {
-      const prepared=`${subject}\n\n${body}`;
-      try { await navigator.clipboard.writeText(prepared);feedback.textContent='Consulta copiada al portapapeles. El propietario del sitio debe configurar un correo de contacto para activar el envío.'; }
-      catch { feedback.textContent='El correo de contacto todavía no está configurado. Copia tu mensaje antes de salir y vuelve a consultar cuando esté habilitado.'; }
-    }
-  });
+  // El formulario utiliza envío HTML nativo: compatible con reCAPTCHA y
+  // la activación inicial del receptor en FormSubmit. No interceptar submit.
   render();
 })();

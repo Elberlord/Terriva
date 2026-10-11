@@ -25,3 +25,11 @@
 ### Calidad
 - Comprobación de sintaxis JavaScript.
 - Pruebas de escritorio y móvil: sin errores de ejecución, menú responsivo, filtrado, reinicio de filtros y galería con múltiples imágenes.
+
+
+## Etapa 2 · Contacto real (2026-10-11)
+- Correos de consultas dirigidos a anakinjd1985@gmail.com mediante FormSubmit, previa activación.
+- Formulario nativo con CAPTCHA, campo antispam y consentimiento informativo.
+- Página `gracias.html` después de envío; no se reclama entrega efectiva hasta prueba real.
+- Aviso legal actualizado para reflejar el proveedor externo.
+- Recepción directa mediante `mailto:` eliminada del flujo principal.
